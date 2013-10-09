@@ -227,5 +227,5 @@ main = do
     date <- getCurrentTime
     ud <- readFile "UnicodeData.txt"
     let kms = concat . rights $ map (runParser convertLineToKeymap () "UnicodeData") $ lines ud
-    writeFile "keymap/pgreek_utf8.vim" $ unlines $ preamble date ++ kms
+    writeFile "keymap/pgreek_utf-8.vim" $ unlines $ preamble date ++ kms
 
