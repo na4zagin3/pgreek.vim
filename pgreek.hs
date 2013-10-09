@@ -76,6 +76,7 @@ moreKeymap = [ ("Q",    "003A", "COLON")
              , ("---",  "2014", "EM DASH")
              , (";#",   "0374", "GREEK NUMERAL SIGN")
              , (";##",  "0375", "GREEK LOWER NUMERAL SIGN")
+             , ("&&",   "03D7", "Abbreviated kai")
              ]
 
 uniq :: (Eq a)=>[a] -> [a]
