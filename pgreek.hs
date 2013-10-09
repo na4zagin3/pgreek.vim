@@ -43,7 +43,7 @@ lengthKey Macron = "-"
 
 accentKey :: Accent -> String
 accentKey Oxia = "/"
-accentKey Varia = "\\"
+accentKey Varia = "\\\\"
 accentKey Perispomeni = "~"
 
 aspilationKey :: Aspilation -> String
