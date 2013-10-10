@@ -89,6 +89,9 @@ uniq (z:zs) = uniq' z zs
 
 accentiate :: Diacritics -> String -> [String]
 accentiate (len, acc, asp, yp, dl) x = uniq . sort $ map concat [ [x, l, d, c, a, y]
+                                                                , [x, l, d, a, c, y]
+                                                                , [x, d, a, c, y, l]
+                                                                , [x, d, c, a, y, l]
                                                                 --, [a, c, d, l, x, y]
                                                                 --, [a, d, c, l, x, y]
                                                                 ]
