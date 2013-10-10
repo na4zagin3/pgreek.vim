@@ -24,7 +24,7 @@ Example
 ----
 
     εἰμί: e>im;i, ei]mi/
-    τὸ ζῷον: t`o z~v|on, to\\ zv=|on
+    τὸ ζῷον: t`o z~v|on, to\ zv=|on
     Ϙόρινθος: Qg;orinuow, Qgo/rinuow
 
 Default Keymap
