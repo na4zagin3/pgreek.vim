@@ -87,10 +87,10 @@ Default Keymap
 
 At this version, there are rules among base letter and diacritics.
 
-- Aspiration is anterior to accent.
-- Length mark follows the base letter or located at last of the sequence
+- Aspiration (smooth and rougnt breathing) is anterior to accent (accute, grave, and circumflex).
+- Length mark (breve and macron) follows the base letter or located at last of the sequence. Length mark cannot cooccurrent with any other diacritics, because of constraint of the implimentation.
 - Iota subscript is posterior to the base letter, aspiration, accent.
-- Diaeresis is anterior to iota subscript. Diaeresis is anterior to the base letter, or follows the base letter and length. 
+- Diaeresis is anterior to iota subscript. Diaeresis is anterior to the base letter, or follows length mark that follows the base letter.
 
 
 ### Symbols
