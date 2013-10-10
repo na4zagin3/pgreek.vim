@@ -95,4 +95,6 @@ Default Keymap
 | –      | En-dash              | `--`      |
 | –      | Em-dash              | `---`     |
 | ϗ      | Kai                  | `&&`      |
+| ʹ      | Numeral Mark         | `;#`      |
+| ͵      | Lower numeral Mark   | `;##`      |
 
