@@ -24,6 +24,7 @@ Example
 ----
 
     εἰμί: e>im;i, ei]mi/
+    ἄϊδι: <;a:idi, a[/i"di
     τὸ ζῷον: t`o z~v|on, to\ zv=|on
     Ϙόρινθος: Qg;orinuow, Qgo/rinuow
 
