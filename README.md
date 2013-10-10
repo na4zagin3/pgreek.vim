@@ -50,7 +50,7 @@ Default Keymap
 | Λ λ    | Lambda       | `L` `l`    |
 | Μ μ    | Mu           | `M` `m`    |
 | Ν ν    | Nu           | `N` `n`    |
-| Ξ ξ    | Sigma        | `S` `s`    |
+| Ξ ξ    | Xi           | `J` `j`    |
 | Ο ο    | Omicron      | `O` `o`    |
 | Π π    | Pi           | `P` `p`    |
 | Ϻ ϻ    | San          | `Qs` `qs`  |
@@ -58,7 +58,7 @@ Default Keymap
 | Ϙ ϙ    | Qoppa        | `Qg` `qg`  |
 | Ϟ ϟ    |              | `Qq` `qq`  |
 | Ρ ρ    | Rho          | `R` `r`    |
-| Σ σ ς  | Sigma        | `S` `s`    |
+| Σ σ ς  | Sigma        | `S` `s` `w` |
 | Τ τ    | Tau          | `T` `t`    |
 | Υ υ    | Ypsilon      | `Y` `y`    |
 | Φ φ    | Phi          | `F` `f`    |
