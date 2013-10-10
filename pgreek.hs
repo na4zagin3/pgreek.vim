@@ -41,14 +41,23 @@ lengthKey :: Length -> String
 lengthKey Vrachy = "^"
 lengthKey Macron = "-"
 
-accentKey :: Accent -> String
-accentKey Oxia = "/"
-accentKey Varia = "\\\\"
-accentKey Perispomeni = "~"
+preAccentKey :: Accent -> String
+preAccentKey Oxia = ";"
+preAccentKey Varia = "`"
+preAccentKey Perispomeni = "~"
 
-aspilationKey :: Aspilation -> String
-aspilationKey Dasia = "["
-aspilationKey Psili = "]"
+postAccentKey :: Accent -> String
+postAccentKey Oxia = "/"
+postAccentKey Varia = "\\\\"
+postAccentKey Perispomeni = "="
+
+preAspilationKey :: Aspilation -> String
+preAspilationKey Dasia = "<"
+preAspilationKey Psili = ">"
+
+postAspilationKey :: Aspilation -> String
+postAspilationKey Dasia = "["
+postAspilationKey Psili = "]"
 
 ypogegrammeniKey :: String
 ypogegrammeniKey = "|"
@@ -88,17 +97,17 @@ uniq (z:zs) = uniq' z zs
                      | otherwise  = x : uniq' y ys
 
 accentiate :: Diacritics -> String -> [String]
-accentiate (len, acc, asp, yp, dl) x = uniq . sort $ map concat [ [x, l, d, c, a, y]
-                                                                , [x, l, d, a, c, y]
-                                                                , [x, d, a, c, y, l]
-                                                                , [x, d, c, a, y, l]
+accentiate (len, acc, asp, yp, dl) x = uniq . sort $ map concat [ [x, l, d, xc, xa, y]
+                                                                , [x, l, d, xa, xc, y]
+                                                                , [x, d, xa, xc, y, l]
+                                                                , [x, d, xc, xa, y, l]
                                                                 --, [a, c, d, l, x, y]
                                                                 --, [a, d, c, l, x, y]
                                                                 ]
   where
     l = maybe "" lengthKey len
-    c = maybe "" accentKey acc
-    a = maybe "" aspilationKey asp
+    xc = maybe "" postAccentKey acc
+    xa = maybe "" postAspilationKey asp
     y = if yp then ypogegrammeniKey else ""
     d = if dl then dialytikaKey else ""
 
