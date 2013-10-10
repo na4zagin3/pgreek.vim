@@ -166,7 +166,7 @@ greekLetterKeys = [ ("ALPHA",   ("a", "A"))
                   , ("SAMPI",   ("qt", "Qt"))
                   , ("ARCHAIC SAMPI", ("qu", "Qu"))
                   , ("STIGMA", ("qj", "Qj"))
-                  , ("YOT", ("qy", "Qy"))
+                  , ("YOT", (undefined, "qy"))
                   ]
 
 parseAccent :: (Stream s m Char) => ParsecT s u m Accent
