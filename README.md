@@ -78,7 +78,7 @@ Default Keymap
 | Grave             | `` ` ``      | `\`           |
 | Circumflex        | `~`          | `=`           |
 | Diaeresis         | `:`          | `"`           |
-| Iota subscript    | (None)       | `|`           |
+| Iota subscript    | (None)       | <code>&#x7C;</code> |
 | Breve             | (None)       | `^`           |
 | Macron            | (None)       | `-`           |
 
