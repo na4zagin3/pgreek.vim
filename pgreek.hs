@@ -62,8 +62,11 @@ postAspilationKey Psili = "]"
 ypogegrammeniKey :: String
 ypogegrammeniKey = "|"
 
-dialytikaKey :: String
-dialytikaKey = ":"
+preDialytikaKey :: String
+preDialytikaKey = ":"
+
+postDialytikaKey :: String
+postDialytikaKey = "\""
 
 preamble :: FormatTime t => t -> [String]
 preamble date = [ "\" Maintainer:\tSakamoto Noriaki <mrty.ityt.pt@gmail.com>"
@@ -101,19 +104,31 @@ uniq (z:zs) = uniq' z zs
                      | otherwise  = x : uniq' y ys
 
 accentiate :: Diacritics -> String -> [String]
-accentiate (len, acc, asp, yp, dl) x = uniq . sort $ map concat [ [x, l, d, xc, xa, y]
-                                                                , [x, l, d, xa, xc, y]
-                                                                , [x, d, xa, xc, y, l]
-                                                                , [x, d, xc, xa, y, l]
+accentiate (len, acc, asp, yp, dl) x = uniq . sort $ map concat [ [x, l, xd, xa, xc, y]
+                                                                , [x, xd, xa, xc, y, l]
+                                                                , [x, xd, xc, xa, y, l]
+                                                                , [dx, x, l, xa, xc, y]
+                                                                , [dx, x, xa, xc, y, l]
+                                                                , [dx, ax, x, l, xc, y]
+                                                                , [dx, ax, x, xc, y, l]
+                                                                , [ax, dx, x, l, xc, y]
+                                                                , [ax, dx, x, xc, y, l]
+                                                                , [ax, dx, cx, x, l, y]
+                                                                , [ax, dx, cx, x, y, l]
+                                                                , [ax, cx, dx, x, l, y]
+                                                                , [ax, cx, dx, x, y, l]
                                                                 --, [a, c, d, l, x, y]
                                                                 --, [a, d, c, l, x, y]
                                                                 ]
   where
     l = maybe "" lengthKey len
+    cx = maybe "" preAccentKey acc
     xc = maybe "" postAccentKey acc
+    ax = maybe "" preAspilationKey asp
     xa = maybe "" postAspilationKey asp
     y = if yp then ypogegrammeniKey else ""
-    d = if dl then dialytikaKey else ""
+    dx = if dl then preDialytikaKey else ""
+    xd = if dl then postDialytikaKey else ""
 
 greekLetterKeys :: [(String, (String, String))]
 greekLetterKeys = [ ("ALPHA",   ("a", "A"))
