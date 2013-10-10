@@ -13,7 +13,7 @@ macron -- macron
 varia -- grave
 oxia -- acute
 perispomeni -- curve
-dialytika -- diaelesis
+dialytika -- diaeresis
 dasia -- aspilated
 psili -- unaspilated
 ypogegrammeni -- iota subscriptum
@@ -185,8 +185,8 @@ parseLength = foldl1 (<|>) [ string "VRACHY"   >> return Vrachy
                            , string "MACRON"   >> return Macron
                            ]
 
-parseDiaelesis :: (Stream s m Char) => ParsecT s u m Diacritic
-parseDiaelesis = string "DIALYTIKA"   >> return Dialytika
+parseDiaeresis :: (Stream s m Char) => ParsecT s u m Diacritic
+parseDiaeresis = string "DIALYTIKA"   >> return Dialytika
 
 parseIota :: (Stream s m Char) => ParsecT s u m Diacritic
 parseIota = foldl1 (<|>) [ string "YPOGEGRAMMENI"   >> return Ypogegrammeni
@@ -197,7 +197,7 @@ parseGreekDiacritics :: (Stream s m Char) => ParsecT s u m Diacritic
 parseGreekDiacritics = foldl1 (<|>) [ liftM Tonos $ try parseAccent
                                     , liftM Pneuma $ try parseAspilation
                                     , liftM Diarkia $ try parseLength
-                                    , parseDiaelesis
+                                    , parseDiaeresis
                                     , parseIota
                                     ]
 
