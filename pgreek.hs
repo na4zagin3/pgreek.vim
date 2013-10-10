@@ -24,18 +24,18 @@ data Length = Vrachy | Macron
     deriving (Read, Show, Eq)
 data Accent = Oxia | Varia | Perispomeni
     deriving (Read, Show, Eq)
-data Aspilation = Dasia | Psili
+data Aspiration = Dasia | Psili
     deriving (Read, Show, Eq)
 
 data Diacritic = Diarkia Length
                | Tonos Accent
-               | Pneuma Aspilation
+               | Pneuma Aspiration
                | Ypogegrammeni
                | Prosgegrammeni
                | Dialytika
     deriving (Read, Show, Eq)
 
-type Diacritics = (Maybe Length, Maybe Accent, Maybe Aspilation, Bool, Bool)
+type Diacritics = (Maybe Length, Maybe Accent, Maybe Aspiration, Bool, Bool)
 
 lengthKey :: Length -> String
 lengthKey Vrachy = "^"
@@ -51,13 +51,13 @@ postAccentKey Oxia = "/"
 postAccentKey Varia = "\\\\"
 postAccentKey Perispomeni = "="
 
-preAspilationKey :: Aspilation -> String
-preAspilationKey Dasia = "<"
-preAspilationKey Psili = ">"
+preAspirationKey :: Aspiration -> String
+preAspirationKey Dasia = "<"
+preAspirationKey Psili = ">"
 
-postAspilationKey :: Aspilation -> String
-postAspilationKey Dasia = "["
-postAspilationKey Psili = "]"
+postAspirationKey :: Aspiration -> String
+postAspirationKey Dasia = "["
+postAspirationKey Psili = "]"
 
 ypogegrammeniKey :: String
 ypogegrammeniKey = "|"
@@ -124,8 +124,8 @@ accentiate (len, acc, asp, yp, dl) x = uniq . sort $ map concat [ [x, l, xd, xa,
     l = maybe "" lengthKey len
     cx = maybe "" preAccentKey acc
     xc = maybe "" postAccentKey acc
-    ax = maybe "" preAspilationKey asp
-    xa = maybe "" postAspilationKey asp
+    ax = maybe "" preAspirationKey asp
+    xa = maybe "" postAspirationKey asp
     y = if yp then ypogegrammeniKey else ""
     dx = if dl then preDialytikaKey else ""
     xd = if dl then postDialytikaKey else ""
@@ -175,8 +175,8 @@ parseAccent = foldl1 (<|>) [ string "OXIA"        >> return Oxia
                            , string "PERISPOMENI" >> return Perispomeni
                            ]
 
-parseAspilation :: (Stream s m Char) => ParsecT s u m Aspilation
-parseAspilation = foldl1 (<|>) [ string "DASIA"   >> return Dasia
+parseAspiration :: (Stream s m Char) => ParsecT s u m Aspiration
+parseAspiration = foldl1 (<|>) [ string "DASIA"   >> return Dasia
                                , string "PSILI"   >> return Psili
                                ]
 
@@ -195,7 +195,7 @@ parseIota = foldl1 (<|>) [ string "YPOGEGRAMMENI"   >> return Ypogegrammeni
 
 parseGreekDiacritics :: (Stream s m Char) => ParsecT s u m Diacritic
 parseGreekDiacritics = foldl1 (<|>) [ liftM Tonos $ try parseAccent
-                                    , liftM Pneuma $ try parseAspilation
+                                    , liftM Pneuma $ try parseAspiration
                                     , liftM Diarkia $ try parseLength
                                     , parseDiaeresis
                                     , parseIota
