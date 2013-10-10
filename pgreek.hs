@@ -80,12 +80,16 @@ moreKeymap = [ ("Q",    "003A", "COLON")
              , (";.",   "0387", "GREEK ANO TELEIA")
              , ("'",    "1FBD", "GREEK APOSTROFOS")
              , (">>",   "00BB", "RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK")
+             , (";>",   "00BB", "RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK")
              , ("<<",   "00AB", "LEFT-POINTING DOUBLE ANGLE QUOTATION MARK")
+             , (";<",   "00AB", "LEFT-POINTING DOUBLE ANGLE QUOTATION MARK")
              , ("--",   "2013", "EN DASH")
              , ("---",  "2014", "EM DASH")
              , (";#",   "0374", "GREEK NUMERAL SIGN")
              , (";##",  "0375", "GREEK LOWER NUMERAL SIGN")
              , ("&&",   "03D7", "Abbreviated kai")
+             , (">,",   "0313", "COMBINING COMMA ABOVE")
+             , ("<,",   "0314", "COMBINING REVERSED COMMA ABOVE")
              ]
 
 uniq :: (Eq a)=>[a] -> [a]
