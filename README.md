@@ -77,10 +77,20 @@ Default Keymap
 | Accute            | `;`          | `/`           |
 | Grave             | `` ` ``      | `\`           |
 | Circumflex        | `~`          | `=`           |
+| Smooth breathing  | `<`          | `[`           |
+| Rough breathing   | `>`          | `]`           |
 | Diaeresis         | `:`          | `"`           |
 | Iota subscript    | (None)       | <code>&#x7C;</code> |
 | Breve             | (None)       | `^`           |
 | Macron            | (None)       | `-`           |
+
+At this version, there are rules among base letter and diacritics.
+
+- Aspiration is anterior to accent.
+- Length mark follows the base letter or located at last of the sequence
+- Iota subscript is posterior to the base letter, aspiration, accent.
+- Diaeresis is anterior to iota subscript. Diaeresis is anterior to the base letter, or follows the base letter and length. 
+
 
 ### Symbols
 
